@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GOVT MIDDLE SCHOOL KUSMUND</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    color:#222;
+}
+
+header{
+    background:#075e54;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+header h1{
+    font-size:28px;
+}
+
+header p{
+    margin-top:8px;
+}
+
+nav{
+    background:#043f39;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    padding:14px 18px;
+    display:block;
+}
+
+nav a:hover{
+    background:#0b806f;
+}
+
+.hero{
+    min-height:350px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px;
+    background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1600&q=80");
+    background-size:cover;
+    background-position:center;
+    color:white;
+}
+
+.hero h2{
+    font-size:38px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+section{
+    max-width:1000px;
+    margin:30px auto;
+    padding:25px;
+}
+
+section h2{
+    text-align:center;
+    color:#075e54;
+    margin-bottom:20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    margin:15px 0;
+    border-radius:10px;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+.notice{
+    border-left:5px solid #075e54;
+}
+
+.result-box{
+    max-width:500px;
+    margin:auto;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+input{
+    width:100%;
+    padding:13px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:6px;
+    font-size:16px;
+}
+
+button{
+    width:100%;
+    padding:13px;
+    background:#075e54;
+    color:white;
+    border:none;
+    border-radius:6px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#043f39;
+}
+
+#result{
+    margin-top:20px;
+}
+
+footer{
+    background:#043f39;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:30px;
+}
+
+@media(max-width:600px){
+    header h1{
+        font-size:22px;
+    }
+
+    .hero h2{
+        font-size:28px;
+    }
+
+    section{
+        margin:15px;
+        padding:15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>GOVT MIDDLE SCHOOL KUSMUND</h1>
+    <p>Welcome to Our School Website</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About School</a>
+    <a href="#notice">Notice Board</a>
+    <a href="#result-section">Student Result</a>
+</nav>
+
+<div class="hero" id="home">
+    <div>
+        <h2>GOVT MIDDLE SCHOOL KUSMUND</h2>
+        <p>Education • Discipline • Success</p>
+    </div>
+</div>
+
+<section id="about">
+    <h2>About Our School</h2>
+
+    <div class="card">
+        <p>
+            GOVT MIDDLE SCHOOL KUSMUND is committed to providing
+            quality education and a positive learning environment
+            for students.
+        </p>
+    </div>
+</section>
+
+<section id="notice">
+    <h2>Notice Board</h2>
+
+    <div class="card notice">
+        <b>📢 Important Notice</b>
+        <p>School notices will be displayed here.</p>
+    </div>
+
+    <div class="card notice">
+        <b>📚 Academic Notice</b>
+        <p>Students should regularly check this notice board.</p>
+    </div>
+</section>
+
+<section id="result-section">
+    <h2>Student Result</h2>
+
+    <div class="result-box">
+
+        <label>Enter Roll Number</label>
+
+        <input
+            type="number"
+            id="roll"
+            placeholder="Enter Roll Number"
+        >
+
+        <button onclick="searchResult()">
+            Search Result
+        </button>
+
+        <div id="result"></div>
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 GOVT MIDDLE SCHOOL KUSMUND</p>
+    <p>📍 Kusmund, Chhattisgarh</p>
+</footer>
+
+<script>
+
+const students = {
+
+    101:{
+        name:"Rahul Kumar",
+        father:"Ramesh Kumar",
+        class:"8th",
+        hindi:82,
+        english:78,
+        maths:91,
+        science:85,
+        social:80
+    },
+
+    102:{
+        name:"Aman Verma",
+        father:"Suresh Verma",
+        class:"8th",
+        hindi:75,
+        english:81,
+        maths:88,
+        science:79,
+        social:84
+    },
+
+    103:{
+        name:"Priya Sharma",
+        father:"Rajesh Sharma",
+        class:"8th",
+        hindi:92,
+        english:89,
+        maths:95,
+        science:91,
+        social:94
+    }
+
+};
+
+function searchResult(){
+
+    const roll = document.getElementById("roll").value;
+    const result = document.getElementById("result");
+
+    if(!students[roll]){
+        result.innerHTML =
+        "<div class='card'>❌ Result not found. Please check your Roll Number.</div>";
+        return;
+    }
+
+    const s = students[roll];
+
+    const total =
+        s.hindi +
+        s.english +
+        s.maths +
+        s.science +
+        s.social;
+
+    const percentage = (total / 500 * 100).toFixed(2);
+
+    let status = percentage >= 33 ? "PASS ✅" : "FAIL ❌";
+
+    result.innerHTML = `
+
+        <div class="card">
+
+            <h3>Student Result</h3>
+
+            <p><b>Roll Number:</b> ${roll}</p>
+
+            <p><b>Name:</b> ${s.name}</p>
+
+            <p><b>Father's Name:</b> ${s.father}</p>
+
+            <p><b>Class:</b> ${s.class}</p>
+
+            <hr><br>
+
+            <p>Hindi: ${s.hindi}</p>
+            <p>English: ${s.english}</p>
+            <p>Maths: ${s.maths}</p>
+            <p>Science: ${s.science}</p>
+            <p>Social Science: ${s.social}</p>
+
+            <br>
+
+            <p><b>Total:</b> ${total}/500</p>
+
+            <p><b>Percentage:</b> ${percentage}%</p>
+
+            <p><b>Result:</b> ${status}</p>
+
+        </div>
+    `;
+}
+
+</script>
+
+</body>
+</html>
