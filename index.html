@@ -239,39 +239,39 @@ footer{
 
 const students = {
 
-    101:{
+    801:{
         name:"RAJESH KUMSR",
         father:"Ramesh Kumar",
         class:"8th",
-        hindi:82,
-        english:78,
-        maths:91,
-        science:85,
-        social:80
-    },
+        hindi:72,
+        english:68,
+        maths:70,
+        science:63,
+        social:69
+        sanskrit:67
 
-    102:{
+    802:{
         name:"Aman Verma",
         father:"Suresh Verma",
         class:"8th",
-        hindi:75,
-        english:81,
-        maths:88,
-        science:79,
-        social:84
+        hindi:70,
+        english:57,
+        maths:48,
+        science:59,
+        social:64,
+        sanskrit:56
     },
-
-    103:{
+    803:{
         name:"Priya Sharma",
         father:"Rajesh Sharma",
         class:"8th",
-        hindi:92,
-        english:89,
-        maths:95,
-        science:91,
-        social:94
+        hindi:75,
+        english:67,
+        maths:55,
+        science:68,
+        social:66,
+        sanskrit:60
     }
-
 };
 
 function searchResult(){
@@ -294,7 +294,7 @@ function searchResult(){
         s.science +
         s.social +
         s.sanskrit;
-    const percentage = (total / 600 * 100).toFixed(2);
+    const percentage = (total / 480 * 100).toFixed(2);
 
     let status = percentage >= 33 ? "PASS ✅" : "FAIL ❌";
 
@@ -322,7 +322,7 @@ function searchResult(){
             <p>sanskrit:${s.sankrit}</p>
             <br>
 
-            <p><b>Total:</b> ${total}/500</p>
+            <p><b>Total:</b> ${total}/480</p>
 
             <p><b>Percentage:</b> ${percentage}%</p>
 
